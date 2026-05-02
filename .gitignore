@@ -1,3 +1,8 @@
 .venv/
+venv/
 .idea/
 __pycache__/
+_chiaki_*.html
+_chiaki_*.txt
+*.db
+Phase0/MiniProject_WebCrawler/data/_investigate.py
