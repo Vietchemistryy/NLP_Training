@@ -28,7 +28,7 @@ class VietnameseTextProcessor:
         with open(filepath, "r", encoding="utf-8") as f:
             for line in f:
                 word = line.strip().lower()
-                if word:  # Skip empty lines # Bỏ qua dòng trống
+                if word:  # Bỏ qua dòng trống
                     self.stopwords.add(word)
 
     def sentence_tokenize(self, text: str) -> List[str]:
@@ -97,24 +97,24 @@ class VietnameseTextProcessor:
         Pipeline xử lý chính: Nhận văn bản thô, trả về chuỗi đã làm sạch và chuẩn hóa.
         Thứ tự: HTML -> URL -> Emoji -> Lowercase -> Punctuation -> Whitespace -> Tokenize -> (Stopwords).
         """
-        # 1. Clean noise
+        # Clean noise
         text = self.remove_html(text)
         text = self.remove_urls(text)
         text = self.remove_emojis(text)
 
-        # 2. Normalize format
+        # Normalize format
         text = text.lower()
         text = self.remove_punctuation(text)
         text = self.normalize_whitespace(text)
 
-        # 3. Tokenize
+        # Tokenize
         tokens = self.word_tokenize(text)
 
-        # 4. Optional filtering
+        # Optional filtering
         if remove_stopwords:
             tokens = self.remove_stopwords(tokens)
 
-        # 5. Join back to string
+        # Join back to string
         return " ".join(tokens)
 
 
