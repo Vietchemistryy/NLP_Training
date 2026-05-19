@@ -59,3 +59,7 @@ if __name__ == "__main__":
 
     idf_result = idf_calculator.compute_idf()
     print(json.dumps(idf_result, indent=4))
+
+"""
+BONUS: Explain IDF at learning/phase1/Bonus_Explanation_IDF.md
+"""
